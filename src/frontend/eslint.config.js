@@ -14,6 +14,21 @@ module.exports = tseslint.config(
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector:
+            "Decorator[expression.callee.name='Injectable'] > CallExpression[arguments.length=1] > ObjectExpression > Property[key.name='providedIn'][value.value='root']",
+          message:
+            "Are you sure you don't want to just create a provider for this?",
+        },
+        {
+          selector:
+            "CallExpression[callee.type='MemberExpression'][callee.property.name='select']",
+          message:
+            "Use the `selectSignal` method instead of `select` on Store instances. Found .select() call - consider using .selectSignal() for signals.",
+        },
+      ],
       "@typescript-eslint/consistent-type-definitions": "off",
       "@angular-eslint/directive-selector": [
         "error",

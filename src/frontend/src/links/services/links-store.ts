@@ -67,6 +67,7 @@ export const LinksStore = signalStore(
                 },
                 (err) => {
                   console.error('Error adding link:', err);
+                  errorDispatch.removeAllTheStinkingErrors();
                   errorDispatch.addError({
                     message: 'Failed to add link',
                     source: 'LinksStore',

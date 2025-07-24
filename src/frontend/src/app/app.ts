@@ -16,7 +16,7 @@ import { ErrorsStore } from '../shared/errors/store';
       @for (err of errorStore.entities(); track err.id) {
         <div class="toast">
           <div class="alert alert-info">
-            <span>{{ err.message }}</span>
+            <span>{{ err.message }} from {{ err.source }}</span>
           </div>
         </div>
       }

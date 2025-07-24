@@ -13,6 +13,7 @@ export const applicationErrorEvents = eventGroup({
   events: {
     addError: type<{ message: string; source: string }>(),
     removeError: type<{ id: string }>(),
+    removeAllTheStinkingErrors: type<void>(),
   },
 });
 
